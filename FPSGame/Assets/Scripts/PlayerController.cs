@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //look Variables
-
     [SerializeField]
     private Camera camera;
     [SerializeField]
@@ -30,6 +29,12 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 moveDirection;
 
+    //weapon variables
+    [SerializeField]
+    private GameObject gun;
+    
+
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -40,6 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         Rotate();
         Movement();
+        
     }
 
     void Rotate()
@@ -84,5 +90,20 @@ public class PlayerController : MonoBehaviour
         //move the player with movement vector.
         characterController.Move(moveDirection * Time.deltaTime);
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "WeaponPickup")
+        {
+            Destroy(other.gameObject);
+            SpawnGun();
+        }
+    }
+    
+    void SpawnGun()
+    {
+        var newGun = Instantiate(gun, new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z), Quaternion.identity);
+        newGun.transform.position = gameObject.transform.position;
     }
 }
