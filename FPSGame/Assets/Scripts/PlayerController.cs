@@ -30,9 +30,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection;
 
     //weapon variables
-    [SerializeField]
-    private GameObject gun;
     
+    private bool isEquipped = false;
+
+    [SerializeField]
+    private GameObject m16;
+
+    private RaycastHit hit;
+
 
 
     void Start()
@@ -45,65 +50,72 @@ public class PlayerController : MonoBehaviour
     {
         Rotate();
         Movement();
-        
+        Weapon();
     }
 
     void Rotate()
-    {
-        // get input
-        mouseX += Input.GetAxisRaw("Mouse X") * lookSensitivity;
-        mouseY += Input.GetAxisRaw("Mouse Y") * lookSensitivity;
+        {
+            // get input
+            mouseX += Input.GetAxisRaw("Mouse X") * lookSensitivity;
+            mouseY += Input.GetAxisRaw("Mouse Y") * lookSensitivity;
 
-        //apply input.
-        transform.localRotation = Quaternion.Euler(Vector3.up * mouseX);
-        camera.transform.localRotation = Quaternion.Euler(Vector3.left * mouseY);
-        mouseY = Mathf.Clamp(mouseY, -90.0f, 90.0f);
-    }
+            //apply input.
+            transform.localRotation = Quaternion.Euler(Vector3.up * mouseX);
+            camera.transform.localRotation = Quaternion.Euler(Vector3.left * mouseY);
+            mouseY = Mathf.Clamp(mouseY, -90.0f, 90.0f);
+        }
 
     void Movement()
-    {
-        //if the player is touching ground
-        if (characterController.isGrounded)
         {
-            // recieve input for movement
-            Vector3 forwardMovement = transform.forward * Input.GetAxisRaw("Vertical");
-            Vector3 strafeMovement = transform.right * Input.GetAxisRaw("Horizontal");
-            if (Input.GetKey(KeyCode.LeftShift))
+            //if the player is touching ground
+            if (characterController.isGrounded)
             {
-                movementSpeed = runSpeed;
+                // recieve input for movement
+                Vector3 forwardMovement = transform.forward * Input.GetAxisRaw("Vertical");
+                Vector3 strafeMovement = transform.right * Input.GetAxisRaw("Horizontal");
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    movementSpeed = runSpeed;
+                }
+                else
+                {
+                    movementSpeed = walkSpeed;
+                }
+                //convert input to vector 3
+                moveDirection = (forwardMovement + strafeMovement).normalized * movementSpeed;
+                //if player jumps
+                if (Input.GetButtonDown("Jump"))
+                {
+                    //jump
+                    moveDirection.y = jumpForce;
+                }
             }
-            else
-            {
-                movementSpeed = walkSpeed;
-            }
-            //convert input to vector 3
-            moveDirection = (forwardMovement + strafeMovement).normalized * movementSpeed;
-            //if player jumps
-            if (Input.GetButtonDown("Jump"))
-            {
-                //jump
-                moveDirection.y = jumpForce;
+            //caluclate gravity and modify movement vector
+            moveDirection.y -= gravityForce * Time.deltaTime;
+            //move the player with movement vector.
+            characterController.Move(moveDirection * Time.deltaTime);
+
+        }
+
+    void Weapon()
+    {   //if click e
+        if (Input.GetKey(KeyCode.E))
+        {   //shoot a ray
+            var UseItemRay = new Ray(camera.transform.position, camera.transform.forward);
+            //if the ray hits something
+            if (Physics.Raycast(UseItemRay, out hit, 10))
+            {   // & if it hits the weapon Pickup
+                if (hit.collider.name == "m16_Pickup")
+                {   // & nothings equipped
+                    if (!isEquipped)
+                    {   // give weapon (set weapon active)
+                        m16.SetActive(true);
+                        hit.collider.gameObject.SetActive(false);
+                        isEquipped = true;
+                    }
+                }
             }
         }
-        //caluclate gravity and modify movement vector
-        moveDirection.y -= gravityForce * Time.deltaTime;
-        //move the player with movement vector.
-        characterController.Move(moveDirection * Time.deltaTime);
-        
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "WeaponPickup")
-        {
-            Destroy(other.gameObject);
-            SpawnGun();
-        }
-    }
-    
-    void SpawnGun()
-    {
-        var newGun = Instantiate(gun, new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z), Quaternion.identity);
-        newGun.transform.position = gameObject.transform.position;
-    }
 }
