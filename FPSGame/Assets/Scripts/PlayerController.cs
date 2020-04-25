@@ -29,28 +29,28 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 moveDirection;
 
-    //weapon variables
-    
-    private bool isEquipped = false;
+    //Health
+    public int maxHealth = 100;
+    public int currentHealth;
 
-    [SerializeField]
-    private GameObject m16;
-
-    private RaycastHit hit;
-
+    public HealthBar healthBar;
 
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Rotate();
         Movement();
-        Weapon();
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            TakeDamage(10);
+        }
     }
 
     void Rotate()
@@ -97,25 +97,10 @@ public class PlayerController : MonoBehaviour
 
         }
 
-    void Weapon()
-    {   //if click e
-        if (Input.GetKey(KeyCode.E))
-        {   //shoot a ray
-            var UseItemRay = new Ray(camera.transform.position, camera.transform.forward);
-            //if the ray hits something
-            if (Physics.Raycast(UseItemRay, out hit, 10))
-            {   // & if it hits the weapon Pickup
-                if (hit.collider.name == "m16_Pickup")
-                {   // & nothings equipped
-                    if (!isEquipped)
-                    {   // give weapon (set weapon active)
-                        m16.SetActive(true);
-                        hit.collider.gameObject.SetActive(false);
-                        isEquipped = true;
-                    }
-                }
-            }
-        }
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
     }
 
 }
