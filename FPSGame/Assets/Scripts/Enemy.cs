@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float health = 50f;
+    public Animator animator;
+    public Transform player;
 
-    public void TakeDamage(float amount)
+    public int health = 100;
+    public int maxDist = 15;
+    public int moveSpeed = 5;
+
+
+
+    public void TakeDamage(int amount)
     {
         health -= amount;
         if(health <= 0)
@@ -15,4 +22,15 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void Update()
+    {
+        transform.LookAt(player);
+
+        if (Vector3.Distance(transform.position, player.position) <= maxDist)
+        {
+            transform.position += transform.forward * moveSpeed * Time.deltaTime;
+        }
+    }
+
 }

@@ -750,6 +750,7 @@ GameObject:
   - component: {fileID: 1173561498}
   - component: {fileID: 1173561497}
   - component: {fileID: 1173561502}
+  - component: {fileID: 1173561503}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -858,7 +859,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b165f1f225aa642a5b4eb4ae881b62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  animator: {fileID: 1173561503}
+  player: {fileID: 1922903852}
+  health: 100
+  maxDist: 15
+  moveSpeed: 5
+--- !u!95 &1173561503
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173561496}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9f25d6e99629fd44eb5903ef5aff33a5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1180091794
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,6 +1826,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoText: {fileID: 599948467}
   gun: {fileID: 1418598213}
+--- !u!4 &1922903852 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3711291880031604221, guid: 3c8e0bf8e68a2294091b9706fb4bb1fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1601341914}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6454066764519642347
 PrefabInstance:
   m_ObjectHideFlags: 0

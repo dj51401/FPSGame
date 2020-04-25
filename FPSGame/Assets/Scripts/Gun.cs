@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public float damage = 10f;
+
     public float range = 100f;
     public float impactForce = 30f;
     public float reloadTime = 1f;
 
+    public int damage = 10;
     public int maxAmmo = 15;
     public int currentAmmo;
 
