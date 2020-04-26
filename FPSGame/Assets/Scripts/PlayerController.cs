@@ -46,11 +46,6 @@ public class PlayerController : MonoBehaviour
     {
         Rotate();
         Movement();
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            TakeDamage(10);
-        }
     }
 
     void Rotate()

@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour
     public float impactForce = 30f;
     public float reloadTime = 1f;
 
-    public int damage = 10;
+    public int damage = 15;
     public int maxAmmo = 15;
     public int currentAmmo;
 
