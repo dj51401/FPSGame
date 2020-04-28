@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private float runSpeed = 8;
 
     private float movementSpeed = 0.0f;
-    private float jumpForce = 5.0f;
+    private float jumpForce = 3.0f;
     private float gravityForce = 9.807f;
 
     private Vector3 moveDirection;
@@ -36,8 +36,12 @@ public class PlayerController : MonoBehaviour
     public HealthBar healthBar;
 
 
+    //triggers
+    public TriggerEvent trigger;
+
     void Start()
     {
+        trigger = gameObject.GetComponent<TriggerEvent>();
         Cursor.lockState = CursorLockMode.Locked;
         currentHealth = maxHealth;
     }
@@ -98,4 +102,14 @@ public class PlayerController : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        switch (other.gameObject.name)
+        {
+            case "Trigger1":
+                trigger.SpawnEnemy1();
+                break;
+
+        }
+    }
 }
