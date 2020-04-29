@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #endregion
 
     void Start()
@@ -37,6 +38,18 @@ public class PlayerController : MonoBehaviour
         characterController = gameObject.GetComponent<CharacterController>();
 =======
     void Start()
+=======
+    public HealthBar healthBar;
+
+
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        currentHealth = maxHealth;
+    }
+
+    void Update()
+>>>>>>> parent of f5e70b3... 0.2.1
     {
 >>>>>>> parent of f5e70b3... 0.2.1
         Cursor.lockState = CursorLockMode.Locked;
@@ -80,7 +93,10 @@ public class PlayerController : MonoBehaviour
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of f5e70b3... 0.2.1
 =======
 >>>>>>> parent of f5e70b3... 0.2.1
 }

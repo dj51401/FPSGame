@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:FPSGame/Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt.meta
 guid: 381dcb09d5029d14897e55f98031fca5
 TextScriptImporter:
+=======
+guid: 6aca7bef58a021745accb3a80df9d374
+PrefabImporter:
+>>>>>>> parent of f5e70b3... 0.2.1:FPSGame/Assets/Waypoint.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
