@@ -41,7 +41,10 @@ public class PlayerController : MonoBehaviour
 =======
     public HealthBar healthBar;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of f5e70b3... 0.2.1
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -94,7 +97,10 @@ public class PlayerController : MonoBehaviour
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of f5e70b3... 0.2.1
 =======
 >>>>>>> parent of f5e70b3... 0.2.1
 =======

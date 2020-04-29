@@ -118,7 +118,11 @@ Canvas:
   m_Camera: {fileID: 3711291879169521767}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_PlaneDistance: 1
+=======
+  m_PlaneDistance: 0.5
+>>>>>>> parent of f5e70b3... 0.2.1
 =======
   m_PlaneDistance: 0.5
 >>>>>>> parent of f5e70b3... 0.2.1
@@ -928,6 +932,9 @@ Transform:
   m_PrefabInstance: {fileID: 6454066763191262513}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of f5e70b3... 0.2.1
+=======
 >>>>>>> parent of f5e70b3... 0.2.1
 =======
 >>>>>>> parent of f5e70b3... 0.2.1

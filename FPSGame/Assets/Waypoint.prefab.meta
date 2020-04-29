@@ -1,5 +1,6 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:FPSGame/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta
 guid: 1b8d251f9af63b746bf2f7ffe00ebb9b
 DefaultImporter:
@@ -9,6 +10,13 @@ guid: 381dcb09d5029d14897e55f98031fca5
 TextScriptImporter:
 >>>>>>> parent of f5e70b3... 0.2.1
 =======
+=======
+<<<<<<< HEAD:FPSGame/Assets/TextMesh Pro/Documentation.meta
+guid: 8e7e8f5a82a3a134e91c54efd2274ea9
+folderAsset: yes
+DefaultImporter:
+=======
+>>>>>>> parent of f5e70b3... 0.2.1
 guid: 6aca7bef58a021745accb3a80df9d374
 PrefabImporter:
 >>>>>>> parent of f5e70b3... 0.2.1:FPSGame/Assets/Waypoint.prefab.meta
