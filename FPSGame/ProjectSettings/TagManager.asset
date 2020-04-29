@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - WeaponPickup
   - Waypoint
-  - Trigger1
   layers:
   - Default
   - TransparentFX

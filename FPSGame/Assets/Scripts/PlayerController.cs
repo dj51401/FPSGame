@@ -23,17 +23,22 @@ public class PlayerController : MonoBehaviour
     private float runSpeed = 8;
 
     private float movementSpeed = 0.0f;
-    private float jumpForce = 3.0f;
+    private float jumpForce = 5.0f;
     private float gravityForce = 9.807f;
 
     private Vector3 moveDirection;
 
 
+<<<<<<< HEAD
     #endregion
 
     void Start()
     {
         characterController = gameObject.GetComponent<CharacterController>();
+=======
+    void Start()
+    {
+>>>>>>> parent of f5e70b3... 0.2.1
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -74,5 +79,8 @@ public class PlayerController : MonoBehaviour
         characterController.Move(moveDirection * Time.deltaTime);
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of f5e70b3... 0.2.1
 }

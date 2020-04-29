@@ -15,10 +15,6 @@ public class Enemy : MonoBehaviour
     enum EnemyState { Patrolling, Chasing }
     EnemyState currentState;
 
-    public int chaseSpeed;
-    public int patrolSpeed;
-    public float chaseDistance = 10;
-
     public Transform[] points;
     public Transform player;
     private int destPoint = 0;
@@ -26,7 +22,7 @@ public class Enemy : MonoBehaviour
 
     public PlayerUI playerUI;
 
-    void Awake()
+    void Start()
     {
         //set current health to max
         currentHealth = maxHealth;
@@ -41,13 +37,12 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        agent.speed = 5;
         if (currentState == EnemyState.Patrolling && agent.remainingDistance < .5f)
         {
             GotoNextPoint();
         }
         //if players within 15m of enemy
-        if (Vector3.Distance(transform.position, player.position) < chaseDistance)
+        if (Vector3.Distance(transform.position, player.position) < 15f)
         {   //state = chasing
             currentState = EnemyState.Chasing;
         }
