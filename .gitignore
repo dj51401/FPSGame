@@ -68,3 +68,15 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+FPSGame/Assets/Materials/Materials.meta
+FPSGame/Assets/Prefabs/Player.prefab
+FPSGame/Assets/Scenes/TestScene.unity
+FPSGame/Assets/Scripts/PlayerController.cs
+FPSGame/Assets/TextMesh Pro.meta
+FPSGame/Assets/TextMesh Pro/Examples & Extras/Fonts.meta
+FPSGame/Assets/TextMesh Pro/Examples & Extras/Materials/Crate - Surface Shader Scene.mat
+FPSGame/Assets/TextMesh Pro/Examples & Extras/Materials/Crate - Surface Shader Scene.mat.meta
+FPSGame/Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs.meta
+FPSGame/Assets/Trigger.prefab.meta
+FPSGame/Assets/Waypoint.prefab.meta
+FPSGame/Library/InspectorExpandedItems.asset

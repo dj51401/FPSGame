@@ -43,7 +43,10 @@ public class PlayerController : MonoBehaviour
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of f5e70b3... 0.2.1
 =======
 >>>>>>> parent of f5e70b3... 0.2.1
 =======
@@ -102,7 +105,10 @@ public class PlayerController : MonoBehaviour
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of f5e70b3... 0.2.1
 =======
 >>>>>>> parent of f5e70b3... 0.2.1
 =======

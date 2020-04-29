@@ -120,7 +120,11 @@ Canvas:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_PlaneDistance: 1
+=======
+  m_PlaneDistance: 0.5
+>>>>>>> parent of f5e70b3... 0.2.1
 =======
   m_PlaneDistance: 0.5
 >>>>>>> parent of f5e70b3... 0.2.1
@@ -938,6 +942,9 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of f5e70b3... 0.2.1
+=======
 >>>>>>> parent of f5e70b3... 0.2.1
 =======
 >>>>>>> parent of f5e70b3... 0.2.1
