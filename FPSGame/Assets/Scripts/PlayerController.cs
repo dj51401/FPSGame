@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    #region
     //look Variables
-    [SerializeField]
-    private Camera camera;
-    [SerializeField]
-    private CharacterController characterController;
+    public Camera camera;
 
+    private CharacterController characterController;
     private float mouseX;
     private float mouseY;
 
@@ -17,9 +16,9 @@ public class PlayerController : MonoBehaviour
     public float lookSensitivity = 1;
 
     //movement variables
-
     [SerializeField]
     private float walkSpeed = 5;
+
     [SerializeField]
     private float runSpeed = 8;
 
@@ -29,27 +28,13 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 moveDirection;
 
-    //Health
-    public int maxHealth = 100;
-    public int currentHealth;
 
-    public HealthBar healthBar;
-
-
-    //triggers
-    public TriggerEvent trigger;
+    #endregion
 
     void Start()
     {
-        trigger = gameObject.GetComponent<TriggerEvent>();
+        characterController = gameObject.GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
-        currentHealth = maxHealth;
-    }
-
-    void Update()
-    {
-        Rotate();
-        Movement();
     }
 
     void Rotate()
@@ -65,51 +50,29 @@ public class PlayerController : MonoBehaviour
         }
 
     void Movement()
+    {
+        if (characterController.isGrounded)
         {
-            //if the player is touching ground
-            if (characterController.isGrounded)
-            {
-                // recieve input for movement
-                Vector3 forwardMovement = transform.forward * Input.GetAxisRaw("Vertical");
-                Vector3 strafeMovement = transform.right * Input.GetAxisRaw("Horizontal");
-                if (Input.GetKey(KeyCode.LeftShift))
-                {
-                    movementSpeed = runSpeed;
-                }
-                else
-                {
-                    movementSpeed = walkSpeed;
-                }
-                //convert input to vector 3
-                moveDirection = (forwardMovement + strafeMovement).normalized * movementSpeed;
-                //if player jumps
-                if (Input.GetButtonDown("Jump"))
-                {
-                    //jump
-                    moveDirection.y = jumpForce;
-                }
+            Vector3 forwardMovement = transform.forward * Input.GetAxisRaw("Vertical");
+            Vector3 strafeMovement = transform.right * Input.GetAxisRaw("Horizontal");
+            moveDirection = (forwardMovement + strafeMovement).normalized * movementSpeed;
+
+            if (Input.GetKey(KeyCode.LeftShift)){
+                movementSpeed = runSpeed;
+            } else {
+                movementSpeed = walkSpeed;
             }
-            //caluclate gravity and modify movement vector
-            moveDirection.y -= gravityForce * Time.deltaTime;
-            //move the player with movement vector.
-            characterController.Move(moveDirection * Time.deltaTime);
 
+            if (Input.GetButtonDown("Jump"))
+            {
+                moveDirection.y = jumpForce;
+            }
+            
         }
 
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+        moveDirection.y -= gravityForce * Time.deltaTime;
+        characterController.Move(moveDirection * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        switch (other.gameObject.name)
-        {
-            case "Trigger1":
-                trigger.SpawnEnemy1();
-                break;
 
-        }
-    }
 }

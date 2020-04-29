@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     private int destPoint = 0;
     private NavMeshAgent agent;
 
-    public PlayerController playerController;
+    public PlayerUI playerUI;
 
     void Awake()
     {
@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour
     {   //if enemy touches player, it damages the player.
         if(collision.gameObject.tag == "Player")
         {
-            playerController.TakeDamage(damage);
+            playerUI.TakeDamage(damage);
             player.transform.position += Vector3.forward;
         }
     }
